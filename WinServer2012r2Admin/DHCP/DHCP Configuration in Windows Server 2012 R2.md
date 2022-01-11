@@ -10,79 +10,79 @@
 - And select **LAN Segment** Option and create LAN Segment and name it whatever u want.
 - Then Save seetings and reload Server and Client VM network Adapter from their control panel.
     
-![img1.png](DHCP \Configuration \in \Windows \Server \2012 \R2/img1.png)
+![img1.png](Imgs/img1.png)
     
 
 ### Step Two: Configuring DHCP Server in Windows Server 2012 R2
 
-![img2.png](/DHCP Configuration in Windows Server 2012 R2/img1.png/img2.png)
+![img2.png](Imgs/img2.png)
 
-![img3.png](DHCP%20Configuration%20in%20Windows%20Server%202012%20R2%20/img3.png)
+![img3.png](Imgs/img3.png)
 
-![img4.png](DHCP%20Configuration%20in%20Windows%20Server%202012%20R2%20/img4.png)
+![img4.png](Imgs/img4.png)
 
-![img5.png](DHCP%20Configuration%20in%20Windows%20Server%202012%20R2%20/img5.png)
+![img5.png](Imgs/img5.png)
 
-![img7.png](DHCP%20Configuration%20in%20Windows%20Server%202012%20R2%20/img7.png)
+![img7.png](Imgs/img7.png)
 
-![img6.png](DHCP%20Configuration%20in%20Windows%20Server%202012%20R2%20/img6.png)
+![img6.png](Imgs/img6.png)
 
-![img7.png](DHCP%20Configuration%20in%20Windows%20Server%202012%20R2%20/img7%201.png)
+![img7.png](Imgs/img7%201.png)
 
-![img8.png](DHCP%20Configuration%20in%20Windows%20Server%202012%20R2%20/img8.png)
+![img8.png](Imgs/img8.png)
 
-![img9.png](DHCP%20Configuration%20in%20Windows%20Server%202012%20R2%20/img9.png)
+![img9.png](Imgs/img9.png)
 
-![img10.png](DHCP%20Configuration%20in%20Windows%20Server%202012%20R2%20/img10.png)
+![img10.png](Imgs/img10.png)
 
-![img11.png](DHCP%20Configuration%20in%20Windows%20Server%202012%20R2%20/img11.png)
+![img11.png](Imgs/img11.png)
 
-![img12.png](DHCP%20Configuration%20in%20Windows%20Server%202012%20R2%20/img12.png)
+![img12.png](Imgs/img12.png)
 
-![img13.png](DHCP%20Configuration%20in%20Windows%20Server%202012%20R2%20/img13.png)
+![img13.png](Imgs/img13.png)
 
-![img14.png](DHCP%20Configuration%20in%20Windows%20Server%202012%20R2%20/img14.png)
+![img14.png](Imgs/img14.png)
 
-![img15.png](DHCP%20Configuration%20in%20Windows%20Server%202012%20R2%20/img15.png)
+![img15.png](Imgs/img15.png)
 
-![img16.png](DHCP%20Configuration%20in%20Windows%20Server%202012%20R2%20/img16.png)
+![img16.png](Imgs/img16.png)
 
-![img17.png](DHCP%20Configuration%20in%20Windows%20Server%202012%20R2%20/img17.png)
+![img17.png](Imgs/img17.png)
 
-![img18.png](DHCP%20Configuration%20in%20Windows%20Server%202012%20R2%20/img18.png)
+![img18.png](Imgs/img18.png)
 
-![img19.png](DHCP%20Configuration%20in%20Windows%20Server%202012%20R2%20/img19.png)
+![img19.png](Imgs/img19.png)
 
-![img20.png](DHCP%20Configuration%20in%20Windows%20Server%202012%20R2%20/img20.png)
+![img20.png](Imgs/img20.png)
 
-![img21.png](DHCP%20Configuration%20in%20Windows%20Server%202012%20R2%20/img21.png)
+![img21.png](Imgs/img21.png)
 
-![img22.png](DHCP%20Configuration%20in%20Windows%20Server%202012%20R2%20/img22.png)
+![img22.png](Imgs/img22.png)
 
-![img23.png](DHCP%20Configuration%20in%20Windows%20Server%202012%20R2%20/img23.png)
+![img23.png](Imgs/img23.png)
 
-![img24.png](DHCP%20Configuration%20in%20Windows%20Server%202012%20R2%20/img24.png)
+![img24.png](Imgs/img24.png)
 
-![img25.png](DHCP%20Configuration%20in%20Windows%20Server%202012%20R2%20/img25.png)
+![img25.png](Imgs/img25.png)
 
 ### Removing DHCP from Windows Server 2012 R2
 
-![rem1.png](DHCP%20Configuration%20in%20Windows%20Server%202012%20R2%20/rem1.png)
+![rem1.png](Imgs/rem1.png)
 
-![rem2.png](DHCP%20Configuration%20in%20Windows%20Server%202012%20R2%20/rem2.png)
+![rem2.png](Imgs/rem2.png)
 
-![rem3.png](DHCP%20Configuration%20in%20Windows%20Server%202012%20R2%20/rem3.png)
+![rem3.png](Imgs/rem3.png)
 
-![rem4.png](DHCP%20Configuration%20in%20Windows%20Server%202012%20R2%20/rem4.png)
+![rem4.png](Imgs/rem4.png)
 
-![rem5.png](DHCP%20Configuration%20in%20Windows%20Server%202012%20R2%20/rem5.png)
+![rem5.png](Imgs/rem5.png)
 
-![rem6.png](DHCP%20Configuration%20in%20Windows%20Server%202012%20R2%20/rem6.png)
+![rem6.png](Imgs/rem6.png)
 
-![rem7.png](DHCP%20Configuration%20in%20Windows%20Server%202012%20R2%20/rem7.png)
+![rem7.png](Imgs/rem7.png)
 
-![rem8.png](DHCP%20Configuration%20in%20Windows%20Server%202012%20R2%20/rem8.png)
+![rem8.png](Imgs/rem8.png)
 
-![rem9.png](DHCP%20Configuration%20in%20Windows%20Server%202012%20R2%20/rem9.png)
+![rem9.png](Imgs/rem9.png)
 
-![rem10.png](DHCP%20Configuration%20in%20Windows%20Server%202012%20R2%20/rem10.png)
+![rem10.png](Imgs/rem10.png)
