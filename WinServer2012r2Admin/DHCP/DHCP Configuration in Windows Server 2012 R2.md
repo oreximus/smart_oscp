@@ -10,7 +10,7 @@
 - And select **LAN Segment** Option and create LAN Segment and name it whatever u want.
 - Then Save seetings and reload Server and Client VM network Adapter from their control panel.
     
-![img1.png](DHCP Configuration in Windows Server 2012 R2/img1.png)
+![img1.png](DHCP \Configuration \in \Windows \Server \2012 \R2/img1.png)
     
 
 ### Step Two: Configuring DHCP Server in Windows Server 2012 R2
