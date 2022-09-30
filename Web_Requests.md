@@ -139,3 +139,127 @@
 ![webimg10](Images/webimg10.png)
 
 - As we can see, the request went through this time, and we received the response data.
+
+## HTTP Requests and Responses
+
+- HTTP communications mainly consist of an HTTP request and an HTTP response. An HTTP request is made by the client (e.g. cURL/browser), and is processed by the server (e.g. Web Server).
+
+- The request contain all of the details we require from the server, including the resource (e.g. URL, path, parameters), any request data, headers or options.
+
+- Once the server receives the HTTP request, it processes the it and responds by sending the HTTP response, which contains the response code, as discussed in a later section, and many contain the resource data if the requester had access to it.
+
+## HTTP Request
+
+![webimg](Images/webimg11.png)
+
+- The image above shows an HTTP GET request to the URL:
+
+- **http://inlanefreight.com/users/login.html**
+
+- The first line of any HTTP request contains three main fields'separated by spaces':
+
+| **Field** | **Example** | **Decription** |
+|-----------|-------------|----------------|
+| Method | GET | The HTTP method or verb, which specifies the type of action to perform. |
+| Path | /users/login.html | The path to the resource being accessed. This field can also be suffixed with a query string (e.g. ? username=user)
+
+| Version | HTTP/1.1 | The third and final field is used to denote the HTTP version |
+
+- The Next set of lines contain HTTP header value pairs, like **Host**, **User-Agent**, **Cookie**, and many other possible headers. These headers are used to specify various attributes of a request.
+
+- The headers are terminated with a new line, which is necessary for the server to validate the request. Finally, a request may end with the request body and data.
+
+**Note**: HTTP version 1.X sends requests as clear-text, and uses a new-line character to separate different fields and different requests. HTTP version 2.X, on other hand, sends requests as binary data in a dictionary form.
+
+## HTTP Response
+
+- Once the server processes our request, it sends its response. The following is an example HTTP response:
+
+![webimg12](Images/webimg13.png)
+
+- The first line of an HTTP response contains two fields separated fields by spaces. The first being the **HTTP version** (e.g **HTTP/1.1**), and the second denotes the **HTTP response code** (e.g. **200 OK**).
+
+- Response codes are used to determine the request's status, as will be discussed in a later section. After the first line, response lists its headers, similar to an HTTP request.
+
+- Both request and response headers are discussed in the next section.
+
+- Finally, the reponse may end with a response body, which is separated by a new line after the headers. The responses body is usually defined as **HTML** code. However, it can also respond with other code types such as **JSON**, website resources such as images, style sheets or scripts, or even a document such as a PDF document hosted on the webserver.
+
+## cURL
+
+- In our earlier examples with cURL, we only specified the URL and got the response body in return. However, cURL also allows us to preview the full HTTP request and the full HTTP response.
+
+![webimg13](Images/webimg12.png)
+
+- As we can see, this time, we get the full HTTP request and response. The request simply sent **GET / HTTP/1.1** along with the **Host, User-Agent** and **Accept** headers. In return, the HTTP response contained the **HTTP/1.1 401 Unauthorized**, which indicates that we do not have access over the requested resource, as we will see in an upcoming section.
+
+- Similar to the request, the response also contained several headers sent by the server, including **Date, Content-Length,** and **Content-Type**. 
+
+Finally, the response contained the response body in HTML, which is the same one we received earlier using cURL without the **-v** flag.
+
+**Exercise**: The **-vv** flag shows an even more verbose output. Try to use this flag to see what extra request and response details get displayed with it.
+
+## Browser DevTools
+
+- Most modern web-browsers come with built-in developer tools (**DevTools**), which are mainly intended for developers to test their web applications.
+
+- To open a the browser devetools in either Chrome or Firefox, we can click [**CTRL+SHIFT+I**] or simply click [**F12**].
+
+- The devtools contain multiple tabs, each of which has its own use. We will mostly be focusing on the **Network Tab** here, as it is responsible for web requests.
+
+- If we click on the Network tab and refresh the page, we should be able to see the list of requests sent by the page:
+
+![webimg14](Images/webimg14.png)
+
+- As we can see, the devtools show us at a glance the response status (i.e. response code), the request method used (**GET**), the requested resource (i.e. URL/domain), along with the requested path. Futhermore, we can use **Filter URLs** to search for a specific request, in case the website loads too many to go through.
+
+## HTTP Headers
+
+- Headers can have on or multiple values, appended after the header name and separated by a colon. We can divide headers into the following categories:
+
+1. **General Headers**
+2. **Entity Headers**
+3. **Request Headers**
+4. **Response Headers**
+5. **Security Headers**
+
+
+## General Headers
+
+- **General Headers** are used in both HTTP requests and responses. They are contextual and are used to **describe the message rather than its contents**.
+
+| **Headers** | **Example** | **Description** |
+|-------------|-------------|-----------------|
+| Date | Date: Wed, 16 Feb 2022 10:38:44 GMT | Holds the date and time at which the message originated it's preferred to convert the time to the standard **UTC** time zone. |
+| Connection | Connection: close | Dictates if the current network connection should stay alive after the request finishes. Two commonly used values for this header are **close** and **keep-alive**. The **close** value from either the client or server means that they would like to terminate the connection, while the **keep-alive** header indicates that the connection should remain open to receive more data and input. |
+
+## Entity Headers
+
+- Similar to general headers, **Entity Headers** can be **common to both request and response.** These headers are used to **describe the content** (entity) transferred by a message. They usually found in responses and POST and PUT requests.
+
+| **Header** | **Example** | **Description** |
+|------------|-------------|-----------------|
+| Content-Type | Media-Type: application/pdf | The **media-type** is similar to **Content-Type**, and describes the data being transferred. This header can play a crucial role in making the server interpret our input. The **charset** field may also be used with this header. |
+| Boundary | boundary="b4e4fbd93540" | Acts as a maker to separate content when there is more than on in the same message. For example, within a form data, this boundary gets used as **--b4e4fbd93540** to separate different parts of the form. |
+| Content-Length | Content-Length:385 | Holds the size of the entity being passed. This header is necessary as the server uses it to read data from the message body, and is automatically generated by the browser and tools like cURL. |
+| Content-Encoding | Content-Encoding: gzip | Data can undergo multiple transformations before being passed. For example, large amounts of data can be compressed to reduce the message size. The type of encoding being used should be specified using the **Content-Encoding** header. |
+
+## Request Headers
+
+- The client sends **Request Headers** in an HTTP transaction. These headers are **used in an HTTP request and do not relate to the content** of the message. The following headers are commonly seen in HTTP requests.
+
+| **Header** |  **Example** | **Description** |
+|------------|--------------|-----------------|
+| Host | Host: www.inlanefreight.com | Used to specify the host being queried for the resource. This can be a domain name or an IP address. HTTP servers can be configured to host different websites, which are revealed based on the hostname. This makes the host header an important enumeration target, as it can indicate the existence of other hosts on the target server. |
+| User-Agent | User-Agent: curl/7.77.0 | The **User-Agent** header is used to describe the client requesting resources. This header can reveal a lot about the client, such as the browser, its version, and the operating system. |
+| Referer | Referer: http://inlanefreight.com/ | Denotes where the current request is coming from. For example, clicking a link from Google search results would make **http://google.com/** the referer. Trusting this header can be dangerous as it can be easily manipulated, leading to unintended consequences. |
+| Accept | Accept: \*/\* |  The **Accept** header describes which media types the client can understand. It can contains multiple media types separated by commas. The \*/\* value signifies that all media types are accepted. |
+| Cookie | Cookie: PHPSESSID=b4e4fbd93540 | Contains cookie-value pairs in the format **name=value**. A **cookie** is a piece of data stored on the client-side and on the server, which acts as an identifier. These are passed to the server per request, thus mainting the client's access. Cookies can also serve other purposes, such as saving user prefrences or session tracking. There can be multiple cookies in a single header separated by a semi-colon. |
+| Authorization | Authorization: BASIC cGFzc3dvcmQK | Another method for the server to identify clients. After successful authentication, the server returns a token unique to the client. Unlike cookies, tokens are stored only on the client-side and retrieved by the server per request. There are multiple types of authentication types based on the webserver and application type used. |
+
+## Response Headers
+
+- **Response Headers** can be **used in an HTTP response and do not relate to the content.** Certain response headers such as **Age, Location,** and **Server** are used to provide more context about the response. The following headers are commonly seen in HTTP responses.
+
+| **Header** | **Example** | **Description** |
+| Server | Server: Apache/2.2.14(Win32) | Contains information about the HTTP server, which processed the request. It can be used to gain information about the server, such as its version, |  
