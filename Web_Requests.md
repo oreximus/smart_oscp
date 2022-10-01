@@ -46,7 +46,7 @@
 
 - The **index.html** contents are then rendered by the web browser and presented to the user. **HTML (HyperText Markup Language)** is a client-side language that is understood and processed by browsers. It is the standard **markup language** to display documents via a web browsers.
 
-- HTML pages are assisted by **Cascading Style Sheets (CSS)**, which allow flexibility for applying presentation elements such as layout, colors, and fonts to one or multiple web pages as well as cripting languages such as **javascript** which enable interactive web pages.
+- HTML pages are assisted by **Cascading Style Sheets (CSS)**, which allow flexibility for applying presentation elements such as layout, colors, and fonts to one or multiple web pages as well as scripting languages such as **javascript** which enable interactive web pages.
 
 ## cURL
 
@@ -162,7 +162,6 @@
 |-----------|-------------|----------------|
 | Method | GET | The HTTP method or verb, which specifies the type of action to perform. |
 | Path | /users/login.html | The path to the resource being accessed. This field can also be suffixed with a query string (e.g. ? username=user)
-
 | Version | HTTP/1.1 | The third and final field is used to denote the HTTP version |
 
 - The Next set of lines contain HTTP header value pairs, like **Host**, **User-Agent**, **Cookie**, and many other possible headers. These headers are used to specify various attributes of a request.
@@ -262,4 +261,5 @@ Finally, the response contained the response body in HTML, which is the same one
 - **Response Headers** can be **used in an HTTP response and do not relate to the content.** Certain response headers such as **Age, Location,** and **Server** are used to provide more context about the response. The following headers are commonly seen in HTTP responses.
 
 | **Header** | **Example** | **Description** |
+|------------|-------------|-----------------|
 | Server | Server: Apache/2.2.14(Win32) | Contains information about the HTTP server, which processed the request. It can be used to gain information about the server, such as its version, |  
