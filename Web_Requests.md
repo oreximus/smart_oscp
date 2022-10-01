@@ -287,5 +287,94 @@ Finally, the response contained the response body in HTML, which is the same one
 
 ![webimg15](Images/webimg15.png)
 
+## HTTP Methods and Codes
 
+- HTTP supports multiple methods for accessing a resource. In the HTTP protocol, several request methods allow the browser to send information, forms, or files to the server.
+
+- These methods are used, among other things, to tell server how to process the request we send and how to reply.
+
+- With cURL, if we use **-v** to preview the full request, the first line contains the HTTP method (e.g. **GET/ HTTP/1.1**), while with browser devtools, the HTTP method is shown in the **Method** column. Furthermore, the response headers also contain the HTTP response code, which the status of processing our HTTP request.
+
+## Request Methods
+
+| **Method** | **Desscription** |
+|------------|------------------|
+| GET | Requests a specific resource. Additional data can be passed to the server via query strings in the URL (e.g. **param=value**). |
+| POST | Sends data to the server. It can handle multiple types of input, such as text, PDFs, and other forms of binary data. This data is appended in the request body present after the headers. The POST method is commonly used when sending information (e.g. forms/logins) or uploading data to a website, such as images or documents. |
+| HEAD | Requests the headers that would be returned multiple types of input, such as text, PDFs, and other forms of binary data. This data is appended in the request body present after the headers. The POST method is commonly used when sending information (e.g. forms/logins) or uploading data to a website, such as images or documents. |
+| PUT | Creates new resources on the server. Allowing this method without proper controls can lead to uplaoding malicious resources. |
+| DELETE | Deletes an existing resource on the webserver. If not properly secured, can lead to Denial of Service (DoS) by deleting critical files on the web server. |
+| OPTIONS | Returns information about the server, such as the methods accepted by it. |
+| PATCH | Applies partial modifications to the resource at the specified location. |
+
+**NOTE** Most modern web applications mainly rely on the **GET** and **POST** methods. However, any web application that utilizes REST APIs also rely on **PUT** and **DELETE**, which are used to update and delete data on the API endpoint, respectively.
+
+## Response Codes
+
+- HTTP status codes are used to tell the client the status of their request. An HTTP serve can return five types of response codes:
+
+| **Types** | **Description** |
+|-----------|-----------------|
+| 1xx | Provides information and does not affect the processing of the request. |
+| 2xx | Returned when a request succeeds. |
+| 3xx | Returned when the server redirects the client. |
+| 4xx | Signifies improper requests **from the client**. For example, requesting a resource that doesn't exist or requesting a bad format. |
+| 5xx | Returned when there is some problem **with the HTTP server** itself. |
+
+- The following are some of the commonly seen examples from each of the above HTTP method types:
+
+| **Codes** | **Description** |
+|-----------|-----------------|
+| 200 OK | Returned on a successful request, and the response body usually contains the requested resource. |
+| 302 Found | Redirects the client to another URL. For example, redirecting the user to their dashboard after successful login.
+| 400 Bad Request | Return on encoutering malformed requests such as requests with missing the line terminators. |
+| 403 Forbidden | Signifies that the client doesn't have approporiate access to the resource. It can also be returned when the server detects malicious input from the user. |
+| 404 Not found | Returned when the client requests a resource that doesn't exist on the server. |
+| 500 Internal Server Error | Returned when the server cannot process the request. |
+
+## GET
+
+- Whenever we visit any URL, our browser default to a GET request to obtain the remote resources hosted at that URL. Once the browser receives the initial page it is requesting; it may send other requests using various HTTP methods.
+
+- This can be observed through the Network tab in the browser devtools.
+
+## HTTP Basic Auth
+
+- Unlike the usual login forms, which utilize HTTP parameters to validate the user credentials (e.g. POST request), this type of authentication utilizes a **basic HTTP authentication**, which is handled directly by the webserver to protect a specific page/directory, without directly interacting with the web application.
+
+- To access the page, we have to enter a valid pair of credentials, which are **admin:admin** in this case:
+
+![webimg16](Images/webimg16.png)
+
+## POST
+
+- Whenever web applications need to transfer files or move the user parameters from the URL, they utilize **POST** requests.
+
+- Unlike HTTP **GET**, which places user parameters within the URL, HTTP **POST** places user parameters within the HTTP Request body. This has three main benefits:
+  - **Lack of Logging**: As POST requests may transfer large files (e.g. file upload), it would not be efficient for the server to log all uploaded files as part of the requested URL, as would be the case with a file uploaded through a GET request.
+  - **Less Encoding Requirements**: URLs are designed to be shared, which request places data in the body which can accept binary data. The only characters that need to be encoded are those that are used to separate parameters.
+  - **More data can be sent**: The maximum URL Length between browsers (Chrome/Firefox/IE), web servers (IIS, Apache, nginx), Content Delivery Networks (Fastly, Cloudfront, Cloudflare), and even URL Shorteners (bit.ly, amzn.to). Generally speaking, a URL's length should be kept to below 2,000 characters, and so they cannot handle a lot of data.
+
+## CRUD API
+
+### APIs
+
+- There are several types of APIs. Many APIs are used to interact with a database, such that we would be able to specify the requested table and the requested row within our API query, and then use an HTTP method to perform the operation needed. For example, for the **api.php** endpoint in our example, if we wanted to update the **city** table in the database, and the row we will be updating has a city name of **london**, then the URL would look something like this:
+
+![webimg18](Images/webimg18.png)
+
+### CRUD
+
+- As we can see, we can easily specify the table and the row we want to perform an operation on through such APIs. Then we may utilize different HTTP methods to perform different operations on that row. In general, APIs perform 4 main operations on the requested database entity.
+
+| **Operation** |  **HTTP Method** | **Description** |
+|---------------|------------------|-----------------|
+| Create | POST | Adds the specified data to the database table |
+| Read | GET | Reads the specified entity from the database table |
+| Updated | PUT | Updates the data of the specified database table 
+| Delete | DELETE | Removes the specified row from the database table |
+
+- These four operations are mainly linked to the commonly know CRUD APIs, but the same principle is also used in REST APIs and several other types of APIs.
+
+- Of course, not all APIs work in the same way, and the user access control will limit what actions we can perform and what results we can see.
 
