@@ -121,4 +121,32 @@
 | Insecure Direct Object Referencing (IDOR) | When combined with a flaw such as broken access control, this can often be used to access another user's files or functionality. An example would be editing your user profile browsing to a page such as /user/701/edit-profile. If we can change the **701** to **702**, we may edit another user's profile!. |
 | Broken Access Control | Another example is an application that allows a user to register a new account. If the account registration functionality is designed poorly, a user may perform privilege escalation when registering. Consider the **POST** request when registering a new user, which submits the data **username=bjones&password=Welcome1&email=bjones@inlanefreight.local&roleid=3**. What if we can manipulate the **roleid** parameter and change it to **0** or **1**. We have seen real-world applications where this was the case, and it was possible to quickly register an admin user and access many unitended features of the web application. |
 
+## Web Application Layout
+
+- Web Application layouts consists of many different layers that can be summarized with the following three main categories:
+
+|**Category** | **Description**|
+|-------------|----------------|
+| Web Application Infrastructure | Describes the structure of required componenets, such as the database, needed for the web application to function as intended. Since the web application can be set up to run on a separate server, it is essential to know which database server it needs to access. |
+| Web Application Components | The components that make up a web application represent all the components that the web application interacts with. These are divided into the following three areas: **UI/UX**,**Clients**, and **Server** components. |
+| Web Application Architecture | Architecture comprises all the relationships between the various web application components. |
+
+## Web Application Infrastructure
+
+- Web applications can use many different infrastructure setups. These are also called **models**. The most common ones can be grouped into the following four types:
+  - Client-Server
+  - One Server
+  - Many Server - One Database
+  - Many Server - Many Database
+
+## Client-Server
+
+- Web applications often adopt the **client-server** model. A server hosts the web applications in a client server model and distributes it to any clients trying to access it.
+
+![img05](imgs/img05.png)
+
+- In this model, web applications have two types of components, those in the front end, which are usually interpreted and executed on the client-side (browser), and components in the back end, usually compiled, interpreted, and executed by the hosting server.
+
+- When a client visits the web applications's URL (web address, i.e. https://www.acme.local), the server uses the main 
+
 
