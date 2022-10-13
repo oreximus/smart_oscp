@@ -179,6 +179,100 @@
 
 - This model's main advantage (**from a security point of view**) is segmentation, where each of the main components of a web application is located and hosted separately.
 
-- In case one webserver is compromised, other webservers are not directly affected. Similarly, if the database is compromised. (i.e)
+- In case one webserver is compromised, other webservers are not directly affected. Similarly, if the database is compromised. (i.e., through a SQL Injection vulnerability), the web application itself is not directly affected.
 
+- There are still access control measures that need to be implemented after asset segmentation, such as limiting web application access to only data needed to function as intented.
+
+## Many Servers - Many Databases
+
+- This model builds upon the **Many Servers, One Database** model. However, within database server, each web application's data is hosted in a separate database.
+
+- The web application can only access private data and only common data that is shared across web applications.
+
+- It is also possible to host each web application's database on its separate database server.
+
+![img05](imgs/img05.png)
+
+- This design is also widely used for redundancy purposes, so if any web server or database goes offline, a backup will run in its place to reduce downtime as much as possible.
+
+- Although this may be more difficult to implement and may require tools like **load balancers** to function appropriately, this architecture is one of the best choices in terms of security due to its proper access control measures and proper asset segmentation.
+
+- Aside from these models, there are other web application model available such as **serverless** web applications or web applications that utilizes **microservices**.
+
+## Web Application Components
+
+- Each web application can have a different number of components. Nevertheless, all of the components of the models mentioned previously can be broken down to:
+  1. **Client**
+  2. **Server**
+    - Webserver
+    - Web Application Logic
+    - Database
+  3. **Services**
+    - 3rd Party Integrations
+    - Web Application Integrations
+  4. **Functions** (Serverless)
+
+## Web Applications Architecture
+
+- The components of a web application are divided into three different layers.
+
+| **Layer** | **Description** |
+|-----------|-----------------|
+| Presentation Layer | Consists of UI process components that enable communication with the application and the system. These can be accessed by the client via the web browser and are returned in the form of HTML, JavaScript, and CSS. |
+| Application Layer | This layer ensures that all client requests (web requests) are correctly processed. Various criteria are checked, such as authorization, privileges, and data passed on to the client. |
+| Data Layer | The data layer works closely with the application layer to determine exactly where the required data is stored and can be accessed. |
+
+- An example of a web application architecture could look something like this:
+
+![img06](imgs/img06.png)
+
+## Microservices
+
+- We can think of microservices as independent components of the web application which in most cases are programmed for one task only.
+
+- For example, for an online store, we can decompose core tasks into the following components:
+
+  - Registration
+  - Search
+  - Payments
+  - Ratings
+  - Reviews
+
+- These components communicate with the client and with each other. The communication between these microservices is **stateless**, which means that the request and response are independent.
+
+- This is because the stored data is **stored separately** from the respective microservices. The use of microservices is considered **service-oriented architecture (SOA)**, built as a collection of different automated functions focused on a single business goal.
+
+- Nertheless, these microservices depend on each other.
+
+- Another essential and efficient microservice component is that they can be written in different programming languages and still interact.
+
+- Microservices benefit from easier scaling and faster development of applications, which encourages innovation and speed upmarket delivery of new features.
+
+- Some benefits of microservices include:
+
+  - Agility
+  - Flexible scaling
+  - Easy Deployment
+  - Reusable code
+  - Resilience
+
+- This AWS **whitepaper** provides an excellent overview of microservices implementation.
+
+## Serverless
+
+- Cloud providers such as AWS, GCP, Azure, among others, offer serverless architecture.
+
+- These platforms provide application frameworks to build such web applications without having to worry about the server themselves.
+
+- These web applications then run in stateless computing containers (Docker, for example).
+
+- This type of architecture gives a company the flexibility to build and deploy applications and services without having to manage infrastructure; all server management is done by the cloud provider, which gets rid of the need to provision, scale and maintain servers needed to run applications and databases.
+
+## Architecture Security
+
+- Understanding the general architecture of web applications and each web application's specific design is important when performing a penetration test on any web application.
+
+- In many cases, an individual web application's vulnerability may not necessarily be caused by a programming error but by a design error in its architecture.
+
+- For example, an individual web application may have all of its core functionality secure implemented. However, due to a lack of proper access control measures in its design, i.e., use of **Role-Based Access Control(RBAC)**, users may be able to access some admin features that are not intended to be directly accessible to learn or even access other user's private information  without having the privileges to do so.
 
