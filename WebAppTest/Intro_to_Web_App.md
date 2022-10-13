@@ -143,10 +143,42 @@
 
 - Web applications often adopt the **client-server** model. A server hosts the web applications in a client server model and distributes it to any clients trying to access it.
 
-![img05](imgs/img05.png)
+![img02](imgs/img02.png)
 
 - In this model, web applications have two types of components, those in the front end, which are usually interpreted and executed on the client-side (browser), and components in the back end, usually compiled, interpreted, and executed by the hosting server.
 
-- When a client visits the web applications's URL (web address, i.e. https://www.acme.local), the server uses the main 
+- When a client visits the web applications's URL (web address, i.e. https://www.acme.local), the server uses the main web application interface (**UI**). Once the user clicks on a button or requests a specific function, the browser sends a HTTP web request to the server, which interprets this request and performs the necessary task(s) to complete the request (i.e., logging the user in, adding an item to the shopping cart, browsing to another page, etc.).
+
+- Once the server has the required data, it sends the result back to the client's browser, displaying the result in a human-readable way.
+
+- However, even though most web applications utilize a client-server front-back end architecture, there are many design implementations.
+
+## One Server
+
+- In this architecture, the entire web application or even several web applications and their components, including the database, are hosted on a single server.
+
+- Though this design is straightforward and easy to implement, it is also the riskiest design.
+
+![img03](imgs/img03.png)
+
+- If any web application hosted on this server is compromized in this architecture, then all web applications' data will be compromized. This design represents an "**all eggs in one basket**" approach since if any of the hosted web applications are vulerable.
+
+- Furthermore, if the webserver goes down for any reason, all hosted web applications become entirely inaccessible until the issue is resolved.
+
+## Many Server - One Database
+
+- This model separates the Database onto its own database server and allows the web applications' hosting server to access the database server to store and retrieve data.
+
+- It can be seen as many-servers to one-database and one-server to one-database, as long as the database is separated on its own database server.
+
+![img-04](imgs/img04.png)
+
+- This model can allow several web applications to access a single database to have access to the same data without syncing the data between them.
+
+- The web applications can be replicates of one main application (i.e. primary/backup), or they can be separate web applications that share common data.
+
+- This model's main advantage (**from a security point of view**) is segmentation, where each of the main components of a web application is located and hosted separately.
+
+- In case one webserver is compromised, other webservers are not directly affected. Similarly, if the database is compromised. (i.e)
 
 
