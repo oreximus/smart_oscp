@@ -411,4 +411,90 @@
 
 - It is important to begin to familiarize ourselves with these flaws and vulnerabilities as they from the basis for many of the issues we cover in future web and even non-web related modules. As pentesters, we must have the ability to competently identify, exploit, and explain these vulnerabilities for our clients.
 
+## HTML
 
+- The first and most dominanat component of the front end of web applications is **HTML (Hypertext Markup Language)**.
+
+- HTML is at the very core of any web page we see on the internet. It contains each page's basic elements, including titles, forms, images, and many other elements.
+
+- The Web browser, in turn, interprets these elements and displays them to the end-user.
+
+- The following is a very basic example of and HTML page:
+
+```
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Page Title</title>
+  </head>
+  <body>
+    <h1>A Heading</h1>
+    <p>A Paragraph</p>
+  </body>
+</html>
+```
+
+- This would display the following:
+
+![img09](imgs/img09.png)
+
+- As we can see, HTML elements are displayed in a tree form, similar to **XML** and other languages:
+
+### HTML Structure
+
+![img10](imgs/img10)
+
+- Each element can contain other HTML elements, while the main **HTML** tag should contain all other elements within the page, which falls under **document**, distinguishing between **HTML** and document written for other languages, such as **XML** documents.
+
+- The HTML elements of the above code can be viewed as follows:
+
+![img11](imgs/img11.png)
+
+- Each HTML element is opened and closed with a tag that specifies the element's type 'e.g. **<p>** for paragraphs', where the content would be placed between these tags.
+
+- Tags may also hold the element's id or class 'e.g. **<p id='para1'> or <p id='red-paragraphs'>'**, which is needed for CSS to properly format the element. Both tags and the content comprise the entire element.
+
+### URL Encoding
+
+- An important concept to learn in HTML is **URL Encoding**, or percent-encoding. For a browser to properly display a page's contents, it has to know the charset in use.
+
+- In URLs, for example, browsers can only use **ASCII** encoding, which only allows alphanumric characters and certain special characters.
+
+- Therefore, all other characters outside of the ASCII character-set have to be encoded within a URL. URL encoding replaces unsafe ASCII characters with a **%** symbol followed by two hexadecimal digits.
+
+- For example, the single-quote character '**'**' is encoded to '**%27**', which can be understood by browsers as a single-quote.
+
+- URLs cannot have spaces in them and will replace a space with either a **+** (plus sign) or **%20**. Some common character encodings are:
+
+| **Character** | **Encoding** |
+|---------------|--------------|
+| space | %20 |
+| ! | %21 |
+| " | %22 |
+| # | %23 |
+| $ | %24 |
+| % | %25 |
+| & | %26 |
+| ' | %27 |
+| ( | %28 |
+| ) | %29 |
+
+### Usage
+
+- The **<head>** element usually contains elements that are not directly printed on the page, like the page title, while all main page elements are located under **<body>**.
+
+- Other important element include the **<style>**, which holds the page's CSS code, and the **<script>**, which holds the JS code of the page, as we will see in the next section.
+
+- Each of these elements is called a **DOM (Document Object Model).** The **World Wide Web Consortium (W3C)** defines **DOM** as:
+
+**"The W3C Document Object Model (DOM) is a platform and language-neutral interface that allows programs and scripts to dynamically access and update the content, structure, and style of a document."**
+
+- The DOM standard is separated into 3 parts:
+
+  - **Core DOM** - the standard model for all document types
+
+  - **XML DOM** - the standard model for XML documents
+
+  - **HTML DOM** - the standard model for HTML documents
+
+- For example, from the above tree view, we can refer to DOMs as **document.head** or **document.h1**, and so on.
