@@ -63,7 +63,7 @@
 
 - Web application attacks are prevalent and present a challenge for most organizations with a web presence, regardless of their size.
 
-- After all, they are usually accessible fron any country by everyone with an internet connection and a web browser and usually offer a vast attack surface.
+- After all, they are usually accessible from any country by everyone with an internet connection and a web browser and usually offer a vast attack surface.
 
 - There are many automated tools for scanning and attacking web applications that, in the wrong hands, can cause significant damage.
 
@@ -89,7 +89,7 @@
 
 - Nowadays every corporation no matter how big it is, they will definitely have one or more web applications within their external perimeter.
 
-- These applications can be everything from simple static websites to blogs powered by Content Management Systems (CMS) such **WordPress** to complicated applications with sign-up/login functionality supporting various user roles from basic users to super admins. Nowadays, it is not very common to find an externally facing host directly exploitable via a know public exploit (such as a vulnerable service or Windows remote code execution (RCE) vulnerability), though it does happen.
+- These applications can be everything from simple static websites to blogs powered by Content Management Systems (CMS) such **WordPress** to complicated applications with sign-up/login functionality supporting various user roles from basic users to super admins. Nowadays, it is not very common to find an externally facing host directly exploitable via a known public exploit (such as a vulnerable service or Windows remote code execution (RCE) vulnerability), though it does happen.
 
 - Web applications provide a vast attack surface, and their dynamic nature means that they are constantly changing (and overlooked!).
 
@@ -99,7 +99,7 @@
 
 - A well-known vulnerability that is still quite prevalent in various type of web applications is SQL injection. This type of vulnerability arises from the unsafe handling of user-supplied input. It can result in access to sensitive data, reading/writing files on the database server, and even remote code execution.
 
-- We often find SQL injection vulnerabilities on web applications that use Active Directory for authentication. While we can usually not leverage this to extract password (since Active Directory administraters them), we can often pull most or all Active Directory user email addresses, which are ofen the same as their usernames.
+- We often find SQL injection vulnerabilities on web applications that use Active Directory for authentication. While we can usually not leverage this to extract password (since Active Directory administrators them), we can often pull most or all Active Directory user email addresses, which are ofen the same as their usernames.
 
 - This data can then be used to perform a **password spraying** attack against web portals that use Active Directory for authentication such as VPN or Microsoft Outlook Web Access/Microsoft O365.
 
@@ -117,7 +117,7 @@
 |----------|-------------------------|
 | SQL injection | Obtaining Active Directory usernames and performing a password spraying attack against a VPN or email portal. |
 | File Inclusion | Reading source code to find a hidden page or directory which exposes additional functionality that can be used to gain remote code execution. |
-| Unresticted File Upload | A web application that allows a user to upload a profile picture that allows any file type to be uploaded (not just images). This can be leveraged to gain full control of the web application server by uploading malicious code. |
+| Unrestricted File Upload | A web application that allows a user to upload a profile picture that allows any file type to be uploaded (not just images). This can be leveraged to gain full control of the web application server by uploading malicious code. |
 | Insecure Direct Object Referencing (IDOR) | When combined with a flaw such as broken access control, this can often be used to access another user's files or functionality. An example would be editing your user profile browsing to a page such as /user/701/edit-profile. If we can change the **701** to **702**, we may edit another user's profile!. |
 | Broken Access Control | Another example is an application that allows a user to register a new account. If the account registration functionality is designed poorly, a user may perform privilege escalation when registering. Consider the **POST** request when registering a new user, which submits the data **username=bjones&password=Welcome1&email=bjones@inlanefreight.local&roleid=3**. What if we can manipulate the **roleid** parameter and change it to **0** or **1**. We have seen real-world applications where this was the case, and it was possible to quickly register an admin user and access many unitended features of the web application. |
 
@@ -274,7 +274,7 @@
 
 - In many cases, an individual web application's vulnerability may not necessarily be caused by a programming error but by a design error in its architecture.
 
-- For example, an individual web application may have all of its core functionality secure implemented. However, due to a lack of proper access control measures in its design, i.e., use of **Role-Based Access Control(RBAC)**, users may be able to access some admin features that are not intended to be directly accessible to learn or even access other user's private information without having the privileges to do so.
+- For example, an individual web application may have all of its core functionality securely implemented. However, due to a lack of proper access control measures in its design, i.e., use of **Role-Based Access Control(RBAC)**, users may be able to access some admin features that are not intended to be directly accessible to learn or even access other user's private information without having the privileges to do so.
 
 - To fix this type of issue, a significant design change would need to be implemented, which would likely be both costly and time-consuming.
 
@@ -381,7 +381,7 @@
 | 6. | Creating Weak Passwords |
 | 7. | Storing Unencrypted Data in the Database |
 | 8. | Depending Excessively on the Client Side |
-| 9. | Being Too Optimiatic |
+| 9. | Being Too Optimistic |
 | 10. | Permitting Variables via the URL Path Name |
 | 11. | Trusting third-party code |
 | 12. | Hard-coding backdoor accounts |
@@ -394,7 +394,7 @@
 | 19. | Review user actions |
 | 20. | Web Application Firewall misconfigurations |
 
-- These mistakes lead to the **OWASP Top 10** vulnerabilities for web applications, which we will discuss in other modules:
+- These mistakes lead to the **OWASP Top 10** vulnerabilities for web applications:
 
 | **No.** | **Vulnerability** |
 |---------|-------------------|
@@ -409,6 +409,6 @@
 | 9. | Using Components with Know Vulnerabilities |
 | 10. | Insufficient Logging and Monitoring |
 
-- It is important to begin to familiarize ourselves with these flaws and vulnerabilities as they from the basis for many of the issues we cove in future web and even non-web related modules. As pentesters, we must have the ability to competently identify, exploit, and explain these vulnerabilities for our clients.
+- It is important to begin to familiarize ourselves with these flaws and vulnerabilities as they from the basis for many of the issues we cover in future web and even non-web related modules. As pentesters, we must have the ability to competently identify, exploit, and explain these vulnerabilities for our clients.
 
 
