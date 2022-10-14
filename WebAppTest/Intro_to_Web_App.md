@@ -409,11 +409,11 @@
 | 9. | Using Components with Know Vulnerabilities |
 | 10. | Insufficient Logging and Monitoring |
 
-- It is important to begin to familiarize ourselves with these flaws and vulnerabilities as they from the basis for many of the issues we cover in future web and even non-web related modules. As pentesters, we must have the ability to competently identify, exploit, and explain these vulnerabilities for our clients.
+- It is important to begin to familiarize ourselves with these flaws and vulnerabilities as they form the basis for many of the issues we cover in future web and even non-web related modules. As pentesters, we must have the ability to competently identify, exploit, and explain these vulnerabilities for our clients.
 
 ## HTML
 
-- The first and most dominanat component of the front end of web applications is **HTML (Hypertext Markup Language)**.
+- The first and most dominant component of the front end of web applications is **HTML (Hypertext Markup Language)**.
 
 - HTML is at the very core of any web page we see on the internet. It contains each page's basic elements, including titles, forms, images, and many other elements.
 
@@ -442,7 +442,7 @@
 
 ### HTML Structure
 
-![img10](imgs/img10)
+![img10](imgs/img10.png)
 
 - Each element can contain other HTML elements, while the main **HTML** tag should contain all other elements within the page, which falls under **document**, distinguishing between **HTML** and document written for other languages, such as **XML** documents.
 
@@ -450,10 +450,11 @@
 
 ![img11](imgs/img11.png)
 
-- Each HTML element is opened and closed with a tag that specifies the element's type 'e.g. **<p>** for paragraphs', where the content would be placed between these tags.
+```
+- Each HTML element is opened and closed with a tag that specifies the element's type 'e.g. <p> for paragraphs', where the content would be placed between these tags.
 
-- Tags may also hold the element's id or class 'e.g. **<p id='para1'> or <p id='red-paragraphs'>'**, which is needed for CSS to properly format the element. Both tags and the content comprise the entire element.
-
+- Tags may also hold the element's id or class 'e.g. <p id='para1'> or <p id='red-paragraphs'>', which is needed for CSS to properly format the element. Both tags and the content comprise the entire element.
+```
 ### URL Encoding
 
 - An important concept to learn in HTML is **URL Encoding**, or percent-encoding. For a browser to properly display a page's contents, it has to know the charset in use.
@@ -480,10 +481,11 @@
 | ) | %29 |
 
 ### Usage
-
+```
 - The **<head>** element usually contains elements that are not directly printed on the page, like the page title, while all main page elements are located under **<body>**.
 
 - Other important element include the **<style>**, which holds the page's CSS code, and the **<script>**, which holds the JS code of the page, as we will see in the next section.
+```
 
 - Each of these elements is called a **DOM (Document Object Model).** The **World Wide Web Consortium (W3C)** defines **DOM** as:
 
