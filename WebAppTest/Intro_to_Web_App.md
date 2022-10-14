@@ -484,7 +484,7 @@
 ```
 - The **<head>** element usually contains elements that are not directly printed on the page, like the page title, while all main page elements are located under **<body>**.
 
-- Other important element include the **<style>**, which holds the page's CSS code, and the **<script>**, which holds the JS code of the page, as we will see in the next section.
+- Other important element include the **<style>**, which holds the page's CSS code, and the **<script>**, which holds the JS code of the page.
 ```
 
 - Each of these elements is called a **DOM (Document Object Model).** The **World Wide Web Consortium (W3C)** defines **DOM** as:
@@ -500,3 +500,68 @@
   - **HTML DOM** - the standard model for HTML documents
 
 - For example, from the above tree view, we can refer to DOMs as **document.head** or **document.h1**, and so on.
+
+- Understanding the HTML DOM structure can help us understand where each element we view on the page is located, which enables us to view the source code of a specific element on the page and look for potential issues.
+
+- We can locate HTML elements by their id, their tag name, or by their class name.
+
+## Cascading Style Sheets (CSS)
+
+- **CSS (Cascading Style Sheets)** is the stylesheet language used alongside HTML to format and set the style of HTML elements. Like HTML, there are several versions of CSS, and each subsequent version introduces a new set of capabilities that can be used for formatting HTML elements.
+
+- Browsers are updated alongside it to support these new features.
+
+### Examples
+
+- At Fundamental level, CSS is used to define the style of each class or type of HTML elements (i.e. **body** or **h1**), such that any element within that page would be represented as defined in the CSS file.
+
+- This could include the font family, font size, background color, text color and alignment, and more.
+
+```
+body {
+    background-color: black;
+  }
+h1 {
+    color: white;
+    text-align: center;
+  }
+p{
+    font-family: helvetica;
+    font-size: 10px;
+  }
+```
+
+- As previously mentioned, this is why we may set unique IDs or class names for certain HTML elements so that we can later refer to them within CSS or JavaScript when needed.
+
+### Syntax
+
+- CSS defines the style of each HTML element or class between curl brackets **{}**, within which the properties are defined with their values (i.e. **element { property : value;}**).
+
+- Each HTML element has many properties that can be set through CSS, such as **height, position, border, margin, padding, color, text-align, font-size,** and hundreds of other properties.
+
+- All of these can be combined and used to design visually appealing web pages.
+
+- CSS can be used for advanced animations for a wide variety of uses, from moving items all the way to advanced 3D animations.
+
+- Many CSS properties are available for animations, like **@keyframes, animation, animation-duration, animation-direction,** and many others.
+
+### Usage
+
+- CSS is often used alongside JavaScript to make quick calculations, dynamically adjust the style properties of certain HTML elements, or achieve advanced animation based on keystrokes or the mouse cursor location.
+
+- Furthermore, CSS can be used alongside other languages to implement their styles, like **XML** or within **SVG** items, and can also be used in modern mobile development platforms to design entire mobile application User Interface (UI).
+
+### Frameworks
+
+- Many may consider CSS to be difficult to develop. In contrast, others may argue that it is inefficient to maually set the style and design of all HTML elements in each web page.
+
+- This is why many CSS frameworks have been introduced, which contain a collection of CSS style-sheets and designs, to make it much faster and easier to create beautiful HTML elements.
+
+- Furthermore, these frameworks are optimized for web application usage. They are designed to be used with JavaScript and for wide use within a web application and contain elements usually required within modern web applications. Some of the most common CSS frameworks are:
+
+  - Bootstrap
+  - SASS
+  - Foundation
+  - Bulma
+  - Pure
+
