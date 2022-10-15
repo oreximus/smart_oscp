@@ -565,3 +565,107 @@ p{
   - Bulma
   - Pure
 
+## JavaScript
+
+- JavaScript is one of the most used language in the world. It is most likely used for web development and mobile development.
+
+- **JavaScript** is usually used on the front end of the application to be executed within a browser.
+
+- Still, there are implementations of back end JavaScript used to develop entire web applications, like **NodeJS**.
+
+- While **HTML** and **CSS** are mainly charge of how a web page looks, **JavaScript** is usually used to control any functionality that the front end page requires.
+
+- Without **JavaScript**, a web page would be mostly static and would not have much functionality or interactive elements.
+
+### Example
+
+- Within the page source code, **JavaScript** code is loaded with the **<script>** tag, as follows:
+
+```
+<script type="text/javascript">
+...JavaScript code...
+</script>
+```
+
+- A web page can also load remote **JavaScript** code with **src** and the script's link, as follows:
+
+```
+<script src="./script.js"></script>
+```
+
+- An example of basic use of **JavaScript** within a web page is the following:
+
+```
+document.getElementByID("button1").innerHTML = "Changed Text!";
+```
+
+- The above example changes the content of the **button1** HTML element. From here on, there are many more advanced uses of **JavaScript** on a web page.
+
+- As with HTML, there are many sites available online to experiment with **JavaScript**. One example is **JSFiddle** which can be used to test **JavaScript**, **CSS**, and **HTML** and save code snippets.
+
+- **JavaScript** is an advanced language, and its syntax is not as simple as **HTML** and **CSS**.
+
+### Usage
+
+
+- Most common web applications heavily rely on **JavaScript** to drive all needed functionality on the web page, like updating the web page view in real-time, dynamically updating the content in real-time, accepting and processing user input, and many other potential functionalities.
+
+- **JavaScript** is also used to automate complex processes and perform HTTP requests to interact with the back end components and send and retrieve data, through technologies like **Ajax**.
+
+- In addition to automation, **JavaScript** is also often used alongside **CSS**, as previously mentioned, to drive advanced animations that would not be possible with **CSS** alone.
+
+- Whenever we visit an interactive and dynamic web page that uses many advanced and visually appealing animations, we are seeing the result of active **JavaScript** code on the client-side without relying on the back end webserver to update the page.
+
+- This makes using **JavaScript** a very fast way to achieve a large number of processes quickly.
+
+### Frameworks
+
+- As web applications become more advanced, it may be inefficient to use pure **JavaScript** to develop an entire web application from scratch.
+
+- This is why a host of **JavaScript** frameworks have been introduced to improve the experience of web applicationn development.
+
+- These platforms introduce libraries that make it very simple to re-create advanced functionalities, like user login and user registration, and they introduce new technologies based on existing ones, like the use of dynamically changing **HTML** code instead of using static **HTML** code.
+
+- These platforms either use **JavaScript** as their programming language or use an implementation of **JavaScript** that compiles its codes into **JavaScript** code.
+
+- Some of the most common front end **JavaScript** frameworks are:
+
+  - Angular
+  - React
+  - Vue
+  - jQuery
+
+
+## Sensitive Data Exposure
+
+- All of the **front end** components we covered are interactive with on the client-side.
+
+- Therefore, if they are attacked, they do not pose a direct threat to the core **back end** of the web application and usually will not lead to permanent damage.
+
+- However, as these components are executed on the **client-side**, they put the end-user in dange of being attacked and exploited if they do have any vulnerabilities.
+
+- If a front end vulnerability is leveraged to attack admin users, it could result in unauthorized access, access to sensitive data, service disruption, and more.
+
+- Although the mojority of web application penetration testing is focused on back end components and their functionality, it is important also to test front end components for potential vulnerabilities, as these types of vulnerabilities can sometimes be utilized to gain access to sensitive functionality (i.e., an admin panel), which may lead to compromising the entire server.
+
+- **Sensitive Data Exposure** refers to the availability of sensitive data in clean-text to the end-user. 
+
+- This is usually found in the **source code** of the web page or page source on the user.
+
+- This is usually found in the **source code** of the web page or page source on the front end of web applications.
+
+- This is the HTML source code of the application, not to be confused with the back end code that is typically only accessible on the server itself.
+
+- We can view any website's page source in our browser by right-clicking anywhere on the page and selecting **View Page Source** from the pop-up menu.
+
+- Sometimes a developer may disable right-clicking on a web application, but this does not prevent us from viewing the page source as we can merely type **ctrl + u** or view the page source.
+
+- Righ-click and choose **View Page Source**, and a new tab will open in our browser with the URL **view-source:https://google.com/**.
+
+- Here we can see the **HTML**, **JavaScript**, and external links.
+
+![img12](imgs/img12.png)
+
+- Sometimes we may find the login **credentials**, **hashes**, or other sensitive data hidden in the comments of a web page's source code or within external **JavaScript** code being imported.
+
+- Other sensitive information may include exposed links or directories or even exposed user information, all of which can potentially be leveraged to further our access within the web application or even the web application's supporting infrastructure (webserver, database server, etc.).
