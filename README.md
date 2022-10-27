@@ -14,322 +14,317 @@ certifications.
 * [WebAppTest](./WebAppTest/)
 * [Web_Requests.md](./Web_Requests.md)
 * [WinServer2012r2Admin](./WinServer2012r2Admin/)
-* [WindowsServerAdministration.md](#windowsserveradministrationmd)
+* [WindowsServerAdministration.md](./WindowsServerAdministration.md)
 * [adimgs](./adimgs/)
 * [ ADDS.md ](./ADDS.md)
 
 ## Table of contents
-```md        .
-  ├── [ADDS.md](ADDS.md) 
-  ├── Cheatsheets
-        │   ├── GettingStarted.md
-        │   ├── JavascriptDeobfuscation.md
-        │   ├── LinuxBasics.md
-        │   ├── RequestnResponse.md
-        │   └── WebRequests.md
-        ├── Images
-        │   ├── Component.png
-        │   ├── URL.png
-        │   ├── VimTutor.png
-        │   ├── VimTutorP.png
-        │   ├── addingread.png
-        │   ├── anderror.png
-        │   ├── andsign.png
-        │   ├── apache2.png
-        │   ├── aptcache.png
-        │   ├── aptcacheshow.png
-        │   ├── aptinstallation.png
-        │   ├── aptlisting.png
-        │   ├── awk.png
-        │   ├── background.png
-        │   ├── bg.png
-        │   ├── burp.png
-        │   ├── burpfive.png
-        │   ├── burpfour.png
-        │   ├── burpone.png
-        │   ├── burpthree.png
-        │   ├── burptwo.png
-        │   ├── cat.png
-        │   ├── catSTD.png
-        │   ├── cd.png
-        │   ├── cd2.png
-        │   ├── cd3.png
-        │   ├── cdp.png
-        │   ├── changingperm.png
-        │   ├── chown.png
-        │   ├── chownshell.png
-        │   ├── column.png
-        │   ├── cooltext (copy).png
-        │   ├── cooltext.png
-        │   ├── curl.png
-        │   ├── cut.png
-        │   ├── dbackground.png
-        │   ├── demonstration.png
-        │   ├── devnull.png
-        │   ├── devnull2.png
-        │   ├── dpkg.png
-        │   ├── dpkginstallation.png
-        │   ├── emptyf.png
-        │   ├── eof.png
-        │   ├── errorfg.png
-        │   ├── execroot.png
-        │   ├── execuser.png
-        │   ├── fg.png
-        │   ├── filesystem.png
-        │   ├── filesystemh.png
-        │   ├── find.png
-        │   ├── findexplain.png
-        │   ├── findm.png
-        │   ├── findo.png
-        │   ├── findstderr.png
-        │   ├── findstderr2.png
-        │   ├── gettinghelp.png
-        │   ├── gettinghelp2.png
-        │   ├── gettinghelp3.png
-        │   ├── gitclone.png
-        │   ├── gitclonetwo.png
-        │   ├── gitnavigate.png
-        │   ├── google.png
-        │   ├── grep.png
-        │   ├── grep2.png
-        │   ├── head.png
-        │   ├── hostname.png
-        │   ├── http_flow.png
-        │   ├── http_response.png
-        │   ├── httpsflow.png
-        │   ├── idcommand.png
-        │   ├── installingapache2.png
-        │   ├── journalctl.png
-        │   ├── killingprocess.png
-        │   ├── less.png
-        │   ├── linuxarchitecture.png
-        │   ├── linuxcomponents.png
-        │   ├── linuxprinciples.png
-        │   ├── locate.png
-        │   ├── locateconf.png
-        │   ├── ls.png
-        │   ├── ls2.png
-        │   ├── ls3.png
-        │   ├── ls4.png
-        │   ├── matchn.png
-        │   ├── mkdir.png
-        │   ├── mkdird.png
-        │   ├── mkdirp.png
-        │   ├── more.png
-        │   ├── morep.png
-        │   ├── morex.png
-        │   ├── mv.png
-        │   ├── nanoed.png
-        │   ├── notes.png
-        │   ├── permcal.png
-        │   ├── permissions.png
-        │   ├── pipes.png
-        │   ├── preport.png
-        │   ├── presult.png
-        │   ├── promptdes.png
-        │   ├── promptdes2.png
-        │   ├── promptdes3.png
-        │   ├── ps.png
-        │   ├── pwd.png
-        │   ├── python3.png
-        │   ├── python3webserver.png
-        │   ├── python3wsevents.png
-        │   ├── readme.png
-        │   ├── readmecp.png
-        │   ├── readmetree.png
-        │   ├── readmt.png
-        │   ├── readoctal.png
-        │   ├── redirect.png
-        │   ├── rename.png
-        │   ├── repoex.png
-        │   ├── result.png
-        │   ├── resultd.png
-        │   ├── rstdin.png
-        │   ├── rstdout.png
-        │   ├── rstdouta.png
-        │   ├── rstdouta2.png
-        │   ├── runningwireshark.png
-        │   ├── sc.png
-        │   ├── searchn.png
-        │   ├── sed.png
-        │   ├── semicolon.png
-        │   ├── signal.png
-        │   ├── signalcommands.png
-        │   ├── sort.png
-        │   ├── sshlogin.png
-        │   ├── sshone.png
-        │   ├── sshthree.png
-        │   ├── sshtwo.png
-        │   ├── stream.png
-        │   ├── systemctl.png
-        │   ├── tabthing.png
-        │   ├── tails.png
-        │   ├── terminal_emulator.png
-        │   ├── testingapp.png
-        │   ├── tmux_session.png
-        │   ├── touch.png
-        │   ├── tr.png
-        │   ├── tree.png
-        │   ├── uname.png
-        │   ├── unamer.png
-        │   ├── userinfo.png
-        │   ├── userinfot.png
-        │   ├── vim.png
-        │   ├── vimq.png
-        │   ├── vimv.png
-        │   ├── wc.png
-        │   ├── wco.png
-        │   ├── webimg01.png
-        │   ├── webimg02.png
-        │   ├── webimg03.png
-        │   ├── webimg04.png
-        │   ├── webimg05.png
-        │   ├── webimg06.png
-        │   ├── webimg07.png
-        │   ├── webimg08.png
-        │   ├── webimg09.png
-        │   ├── webimg10.png
-        │   ├── webimg11.png
-        │   ├── webimg12.png
-        │   ├── webimg13.png
-        │   ├── webimg14.png
-        │   ├── webimg15.png
-        │   ├── webimg16.png
-        │   ├── webimg17.png
-        │   ├── webimg18.png
-        │   ├── webimg19.png
-        │   ├── wget.png
-        │   ├── which.png
-        │   ├── whoami.png
-        │   ├── wireshark.png
-        │   └── wiresharkone.png
-        ├── Linux.md
-        ├── README.md
-        ├── SomeExtraShit
-        │   ├── Images
-        │   │   ├── uidgid.png
-        │   │   └── uidgid2.png
-        │   ├── Log4Shell.md
-        │   ├── PentestRes.md
-        │   └── UidVsGid.md
-        ├── WebAppTest
-        │   ├── Intro_to_Web_App.md
-        │   ├── WebAppTest.md
-        │   └── imgs
-        │       ├── img01.png
-        │       ├── img02.png
-        │       ├── img03.png
-        │       ├── img04.png
-        │       ├── img05.png
-        │       ├── img06.png
-        │       ├── img07.png
-        │       ├── img08.png
-        │       ├── img09.png
-        │       ├── img10.png
-        │       ├── img11.png
-        │       ├── img12.png
-        │       ├── img13.png
-        │       ├── img14.png
-        │       ├── img15.png
-        │       ├── img16.png
-        │       ├── img17.png
-        │       └── img18.png
-        ├── Web_Requests.md
-        ├── WinServer2012r2Admin
-        │   ├── DHCP
-        │   │   ├── DHCP Configuration in Windows Server 2012 R2.md
-        │   │   └── Imgs
-        │   │       ├── img1.png
-        │   │       ├── img10.png
-        │   │       ├── img11.png
-        │   │       ├── img12.png
-        │   │       ├── img13.png
-        │   │       ├── img14.png
-        │   │       ├── img15.png
-        │   │       ├── img16.png
-        │   │       ├── img17.png
-        │   │       ├── img18.png
-        │   │       ├── img19.png
-        │   │       ├── img2.png
-        │   │       ├── img20.png
-        │   │       ├── img21.png
-        │   │       ├── img22.png
-        │   │       ├── img23.png
-        │   │       ├── img24.png
-        │   │       ├── img25.png
-        │   │       ├── img3.png
-        │   │       ├── img4.png
-        │   │       ├── img5.png
-        │   │       ├── img6.png
-        │   │       ├── img7 1.png
-        │   │       ├── img7.png
-        │   │       ├── img8.png
-        │   │       ├── img9.png
-        │   │       ├── rem1.png
-        │   │       ├── rem10.png
-        │   │       ├── rem2.png
-        │   │       ├── rem3.png
-        │   │       ├── rem4.png
-        │   │       ├── rem5.png
-        │   │       ├── rem6.png
-        │   │       ├── rem7.png
-        │   │       ├── rem8.png
-        │   │       └── rem9.png
-        │   ├── DNS
-        │   │   ├── DNS
-        │   │   │   ├── img1.png
-        │   │   │   ├── img10.png
-        │   │   │   ├── img11.png
-        │   │   │   ├── img2.png
-        │   │   │   ├── img3.png
-        │   │   │   ├── img4.png
-        │   │   │   ├── img5.png
-        │   │   │   ├── img6.png
-        │   │   │   ├── img7.png
-        │   │   │   ├── img8.png
-        │   │   │   ├── img9.png
-        │   │   │   ├── rem1.png
-        │   │   │   ├── rem2.png
-        │   │   │   ├── rem3.png
-        │   │   │   ├── rem4.png
-        │   │   │   ├── rem5.png
-        │   │   │   ├── rem6.png
-        │   │   │   ├── rem7.png
-        │   │   │   ├── rem8.png
-        │   │   │   └── rem9.png
-        │   │   └── DNS.md
-        │   └── IIS
-        │       ├── IIS
-        │       │   ├── img1.png
-        │       │   ├── img2.png
-        │       │   ├── img3.png
-        │       │   ├── img4.png
-        │       │   ├── img5.png
-        │       │   ├── img6.png
-        │       │   ├── img7.png
-        │       │   ├── img8.png
-        │       │   ├── img9.png
-        │       │   ├── l1.png
-        │       │   ├── l2.png
-        │       │   ├── l3.png
-        │       │   ├── l4.png
-        │       │   ├── l5.png
-        │       │   ├── l6.png
-        │       │   ├── l7.png
-        │       │   └── l8.png
-        │       └── IIS.md
-        ├── WindowsServerAdministration.md
-        └── adimgs
-            ├── img01.png
-            ├── img02.png
-            └── img03.png
-        
-        14 directories, 289 files
-        
+
 ```
+.
+├── ADDS.md
+├── Cheatsheets
+│   ├── GettingStarted.md
+│   ├── JavascriptDeobfuscation.md
+│   ├── LinuxBasics.md
+│   ├── RequestnResponse.md
+│   └── WebRequests.md
+├── Images
+│   ├── Component.png
+│   ├── URL.png
+│   ├── VimTutor.png
+│   ├── VimTutorP.png
+│   ├── addingread.png
+│   ├── anderror.png
+│   ├── andsign.png
+│   ├── apache2.png
+│   ├── aptcache.png
+│   ├── aptcacheshow.png
+│   ├── aptinstallation.png
+│   ├── aptlisting.png
+│   ├── awk.png
+│   ├── background.png
+│   ├── bg.png
+│   ├── burp.png
+│   ├── burpfive.png
+│   ├── burpfour.png
+│   ├── burpone.png
+│   ├── burpthree.png
+│   ├── burptwo.png
+│   ├── cat.png
+│   ├── catSTD.png
+│   ├── cd.png
+│   ├── cd2.png
+│   ├── cd3.png
+│   ├── cdp.png
+│   ├── changingperm.png
+│   ├── chown.png
+│   ├── chownshell.png
+│   ├── column.png
+│   ├── cooltext (copy).png
+│   ├── cooltext.png
+│   ├── curl.png
+│   ├── cut.png
+│   ├── dbackground.png
+│   ├── demonstration.png
+│   ├── devnull.png
+│   ├── devnull2.png
+│   ├── dpkg.png
+│   ├── dpkginstallation.png
+│   ├── emptyf.png
+│   ├── eof.png
+│   ├── errorfg.png
+│   ├── execroot.png
+│   ├── execuser.png
+│   ├── fg.png
+│   ├── filesystem.png
+│   ├── filesystemh.png
+│   ├── find.png
+│   ├── findexplain.png
+│   ├── findm.png
+│   ├── findo.png
+│   ├── findstderr.png
+│   ├── findstderr2.png
+│   ├── gettinghelp.png
+│   ├── gettinghelp2.png
+│   ├── gettinghelp3.png
+│   ├── gitclone.png
+│   ├── gitclonetwo.png
+│   ├── gitnavigate.png
+│   ├── google.png
+│   ├── grep.png
+│   ├── grep2.png
+│   ├── head.png
+│   ├── hostname.png
+│   ├── http_flow.png
+│   ├── http_response.png
+│   ├── httpsflow.png
+│   ├── idcommand.png
+│   ├── installingapache2.png
+│   ├── journalctl.png
+│   ├── killingprocess.png
+│   ├── less.png
+│   ├── linuxarchitecture.png
+│   ├── linuxcomponents.png
+│   ├── linuxprinciples.png
+│   ├── locate.png
+│   ├── locateconf.png
+│   ├── ls.png
+│   ├── ls2.png
+│   ├── ls3.png
+│   ├── ls4.png
+│   ├── matchn.png
+│   ├── mkdir.png
+│   ├── mkdird.png
+│   ├── mkdirp.png
+│   ├── more.png
+│   ├── morep.png
+│   ├── morex.png
+│   ├── mv.png
+│   ├── nanoed.png
+│   ├── notes.png
+│   ├── permcal.png
+│   ├── permissions.png
+│   ├── pipes.png
+│   ├── preport.png
+│   ├── presult.png
+│   ├── promptdes.png
+│   ├── promptdes2.png
+│   ├── promptdes3.png
+│   ├── ps.png
+│   ├── pwd.png
+│   ├── python3.png
+│   ├── python3webserver.png
+│   ├── python3wsevents.png
+│   ├── readme.png
+│   ├── readmecp.png
+│   ├── readmetree.png
+│   ├── readmt.png
+│   ├── readoctal.png
+│   ├── redirect.png
+│   ├── rename.png
+│   ├── repoex.png
+│   ├── result.png
+│   ├── resultd.png
+│   ├── rstdin.png
+│   ├── rstdout.png
+│   ├── rstdouta.png
+│   ├── rstdouta2.png
+│   ├── runningwireshark.png
+│   ├── sc.png
+│   ├── searchn.png
+│   ├── sed.png
+│   ├── semicolon.png
+│   ├── signal.png
+│   ├── signalcommands.png
+│   ├── sort.png
+│   ├── sshlogin.png
+│   ├── sshone.png
+│   ├── sshthree.png
+│   ├── sshtwo.png
+│   ├── stream.png
+│   ├── systemctl.png
+│   ├── tabthing.png
+│   ├── tails.png
+│   ├── terminal_emulator.png
+│   ├── testingapp.png
+│   ├── tmux_session.png
+│   ├── touch.png
+│   ├── tr.png
+│   ├── tree.png
+│   ├── uname.png
+│   ├── unamer.png
+│   ├── userinfo.png
+│   ├── userinfot.png
+│   ├── vim.png
+│   ├── vimq.png
+│   ├── vimv.png
+│   ├── wc.png
+│   ├── wco.png
+│   ├── webimg01.png
+│   ├── webimg02.png
+│   ├── webimg03.png
+│   ├── webimg04.png
+│   ├── webimg05.png
+│   ├── webimg06.png
+│   ├── webimg07.png
+│   ├── webimg08.png
+│   ├── webimg09.png
+│   ├── webimg10.png
+│   ├── webimg11.png
+│   ├── webimg12.png
+│   ├── webimg13.png
+│   ├── webimg14.png
+│   ├── webimg15.png
+│   ├── webimg16.png
+│   ├── webimg17.png
+│   ├── webimg18.png
+│   ├── webimg19.png
+│   ├── wget.png
+│   ├── which.png
+│   ├── whoami.png
+│   ├── wireshark.png
+│   └── wiresharkone.png
+├── Linux.md
+├── README.md
+├── SomeExtraShit
+│   ├── Images
+│   │   ├── uidgid.png
+│   │   └── uidgid2.png
+│   ├── Log4Shell.md
+│   ├── PentestRes.md
+│   └── UidVsGid.md
+├── WebAppTest
+│   ├── Intro_to_Web_App.md
+│   ├── WebAppTest.md
+│   └── imgs
+│       ├── img01.png
+│       ├── img02.png
+│       ├── img03.png
+│       ├── img04.png
+│       ├── img05.png
+│       ├── img06.png
+│       ├── img07.png
+│       ├── img08.png
+│       ├── img09.png
+│       ├── img10.png
+│       ├── img11.png
+│       ├── img12.png
+│       ├── img13.png
+│       ├── img14.png
+│       ├── img15.png
+│       ├── img16.png
+│       ├── img17.png
+│       └── img18.png
+├── Web_Requests.md
+├── WinServer2012r2Admin
+│   ├── DHCP
+│   │   ├── DHCP Configuration in Windows Server 2012 R2.md
+│   │   └── Imgs
+│   │       ├── img1.png
+│   │       ├── img10.png
+│   │       ├── img11.png
+│   │       ├── img12.png
+│   │       ├── img13.png
+│   │       ├── img14.png
+│   │       ├── img15.png
+│   │       ├── img16.png
+│   │       ├── img17.png
+│   │       ├── img18.png
+│   │       ├── img19.png
+│   │       ├── img2.png
+│   │       ├── img20.png
+│   │       ├── img21.png
+│   │       ├── img22.png
+│   │       ├── img23.png
+│   │       ├── img24.png
+│   │       ├── img25.png
+│   │       ├── img3.png
+│   │       ├── img4.png
+│   │       ├── img5.png
+│   │       ├── img6.png
+│   │       ├── img7 1.png
+│   │       ├── img7.png
+│   │       ├── img8.png
+│   │       ├── img9.png
+│   │       ├── rem1.png
+│   │       ├── rem10.png
+│   │       ├── rem2.png
+│   │       ├── rem3.png
+│   │       ├── rem4.png
+│   │       ├── rem5.png
+│   │       ├── rem6.png
+│   │       ├── rem7.png
+│   │       ├── rem8.png
+│   │       └── rem9.png
+│   ├── DNS
+│   │   ├── DNS
+│   │   │   ├── img1.png
+│   │   │   ├── img10.png
+│   │   │   ├── img11.png
+│   │   │   ├── img2.png
+│   │   │   ├── img3.png
+│   │   │   ├── img4.png
+│   │   │   ├── img5.png
+│   │   │   ├── img6.png
+│   │   │   ├── img7.png
+│   │   │   ├── img8.png
+│   │   │   ├── img9.png
+│   │   │   ├── rem1.png
+│   │   │   ├── rem2.png
+│   │   │   ├── rem3.png
+│   │   │   ├── rem4.png
+│   │   │   ├── rem5.png
+│   │   │   ├── rem6.png
+│   │   │   ├── rem7.png
+│   │   │   ├── rem8.png
+│   │   │   └── rem9.png
+│   │   └── DNS.md
+│   └── IIS
+│       ├── IIS
+│       │   ├── img1.png
+│       │   ├── img2.png
+│       │   ├── img3.png
+│       │   ├── img4.png
+│       │   ├── img5.png
+│       │   ├── img6.png
+│       │   ├── img7.png
+│       │   ├── img8.png
+│       │   ├── img9.png
+│       │   ├── l1.png
+│       │   ├── l2.png
+│       │   ├── l3.png
+│       │   ├── l4.png
+│       │   ├── l5.png
+│       │   ├── l6.png
+│       │   ├── l7.png
+│       │   └── l8.png
+│       └── IIS.md
+├── WindowsServerAdministration.md
+└── adimgs
+    ├── img01.png
+    ├── img02.png
+    └── img03.png
 
-
-
-- ### <a href="https://github.com/oreximus/smart_oscp/blob/master/Linux.md">Basics of Linux for Hackers!</a>
-- ### <a href="https://github.com/oreximus/smart_oscp/blob/master/Web_Requests.md">Web Request</a>
-- ### <a href="https://github.com/oreximus/smart_oscp/blob/master/WebAppTest/Intro_to_Web_App.md">Introduction to Web Applications</a>
+14 directories, 289 files
+```
