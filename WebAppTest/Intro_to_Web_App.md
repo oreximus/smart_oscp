@@ -917,5 +917,123 @@ document.getElementByID("button1").innerHTML = "Changed Text!";
 
 ![img18](imgs/img18.png)
 
+- The following are some of the most common **HTTP response codes:**
 
+| **Code** | **Description** |
+|----------|-----------------|
+| **Successful responses**|
+| 200 OK | The request has succeeded |
+| **Redirection messages** |
+| 301 Moved Permanently | The URL of the requested resource has been changed permanently |
+| 302 Found | The URL of the requested resource has been changed temporarily |
+| **Client error responses** |
+| 400 Bad Request | The server could not understand the request due to invalid syntax |
+| 401 Unauthorized | The client does not have access rights to the content |
+| 403 Forbidden | The client does not have access rights to the content |
+| 404 Not Found | The server can not find the requested resource |
+| 405 Method Not Allowed | The request method is known by the server but has been disabled and cannot be used |
+| 408 Request Timeout | This response is sent on an idle connection by some servers, even without any previous request by the client |
+| **Server error responses** |
+| 500 Internal Server Error | The server has encountered a situation it doesn't know how to handle |
+| 502 Bad Gateway | The server, while working as a gateway to get a response needed to handle the request, received an invalid response |
+| 504 Gateway Timeout | The server is action as a gateway and cannot get a response in time |
 
+- Web Server asking also accept various types of user input within HTTP request, including text, **JSON**, and even binary dat (i.e., for file uploads).
+
+- Once a web server receives a web request a web request, it is then responsible for routing it to its destination, run any processes needed for that request, and return the the response to the user on the client-side.
+
+- The pages and files that the webserver processes and routes traffic to are the web application core files.
+
+- The following shows an example of requesting a oage in a Linux terminal using the **cURL** utility, and receiving the server response while using the **-I** flag in, which display the headers:
+
+![img19](imgs/img19.png)
+
+- While this **curl** command example shows us the source code of the webpage:
+
+![img20](imgs/img20.png)
+
+- Many web server types can be utilized to run web applications. Most of these can handle all types of complex HTTP requests, and they are usually free of charge.
+
+- We can even develop our own basic web server using languages such as **Python**, **JavaScript**, and **PHP**.
+
+- However, for each language, there's a popular web application that is optmized for handling large amounts of web traffic, which saves us time in creating our own web server.
+
+## Databases
+
+- Web applications utilize back end **databases** to store various content and information relatd to the web application. This can be core web application assets like images and files, web application content like post and updates, or user data like usernames and passwords.
+
+- This allows web applications to easily and quickly store and retrieve data and enable dynamic content that is different for each user.
+
+- There are many types of databases, each of which fits a certain type of use. Most developers look for certain characteristics in a database, such as **speed** and in storing and retrieving data, **size** when storing large amounts of data, **scalability** as the web application grows, and **cost**.
+
+### Relational (SQL)
+
+- **Relational** (SQL) databases store their data in tables, rows, and columns. Each table can have unique keys, which can link tables together and create relationships between tables.
+
+- For example, we can have a **users** table in a relational database containing columns like **id**, **username**, **first_name**, **last_name**, and so on.
+
+- The **id** can be used as the table key. Another table, **posts**, may contain posts made by all users, with columns like **id**, **user_id**, **date**, **content**, and so on.
+
+![img20](imgs/img20.png)
+
+- We can link the **id** from the **users** table to the **user_id** in the **posts** table to easily retrieve the user details for each post, without having to store all user details with each post.
+
+- A table can have more than one key, as another column can be used as a key to link with another table. For example, the **id** column can be used as a key to link the **posts** table to another table containing comments, each of which belongs to a certain post, and so on.
+
+- A table can have more than one key, us another column can be used as a key to link with another table. For example, the **id** column can be used as a key to link the **posts** table to another table containing comments, each of which belongs to a certain post, and so on.
+
+***The relationship between tables within a database is called a Schema.***
+
+- This way, by using relational databases, it becomes very quick and easy to retrieve all data about a certain element from all databases.
+
+- For example, we can retrieve all details linked to a certain user from all tables with a single query. This makes relational databases very fast and reliable for big datasets that have a clear structure and design.
+
+- Database also makes data management very efficient.
+
+- Some of the most common relational database include:
+
+| **Type** | **Description** |
+|----------|-----------------|
+| **MySQL**| The most commonly used database around the internet. It is an open-source database and can be used completely free of charge. |
+| **MSSQL** | Microsoft's implementation of a relational database. Widely used with Windows Servers and IIS web servers. |
+| **Oracle** | A very reliable database for big businesses, and is frequently updated with innovatice database solutions to make it faster and more reliable. It can be costly, even for big businesses. |
+| **PostgreSQL** | Another free and open-source relational database. It is designed to be easily extensible, enabling adding advanced new features without needing a mojor change to the initial database design. |
+
+- Other common SQL databases include: **SQLite, MariaDB, Amazon, Aurora,** and **Azure SQL**.
+
+### Non-relational (NoSQL)
+
+- A **non-relational database** does not use tables, rows, columns, primary keys, relationships, or schemas.
+
+- Due to the lack of defined structure for the database, **NoSQL** database stores data using various storage models, depeding on the type of data stored.
+
+- When dealing with datasets that are not well defined and structured, a **NoSQL** database would be the best choice for storing our data.
+
+- There are 4 common storage models for **NoSQL** databases:
+
+  - Key-Value
+  - Document-Based
+  - Wide-Column
+  - Column
+
+- Each of the above models has a different way of storing data. For example, the **Key-Value** model usually stores data in **JSON** or **XML**, and has a key for each pair, storing all of its data as its value:
+
+- The above example can be represented using **JSON** as follows:
+
+```
+{
+  "100001": {
+    "date": "01-01-2021",
+    "content": "Welcome to this web application."
+  },
+  "100002": {
+    "date": "02-01-2021",
+    "content": "This is the first post on this web app."
+  },
+  "100003": {
+    "date": "02-01-2021",
+    "content": "Reminder: Tomorrow is the ..."
+  }
+}
+```
+- It looks similar to a dictionary/map/key-value pair in languages like Python or PHP 'i.e. {'key':'value'}', where the key is usually a string, the value can be a string, dictionary, or any class object.
